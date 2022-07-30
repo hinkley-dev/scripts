@@ -10,10 +10,10 @@ syntax enable
 "
 set path+=**
 set wildmenu
-set wildignore+=**/node_modules/** 
+set wildignore+=**/node_modules/**
 set hidden
 
-" }}} 
+" }}}
 
 
 
@@ -66,9 +66,8 @@ set ttyfast
 set showmode
 "set showcmd
 
-" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set matchpairs+=<:>
-
+" Highlight matching pairs of brackets. Use the % character to jump between them.
+"set matchpairs+=<:>
 " Display different types of white spaces.
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set list
@@ -98,20 +97,28 @@ set ignorecase
 
 
 "Scroll between tabs easily"
-nnoremap <C-Left> :tabprevious<CR>                                                                            
+nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-j> :tabprevious<CR>                                                                            
+nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
+
+" move lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 "jj esc
 imap jj <Esc>
-"dont let mac clipboard override y and p
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+"COMMENTED OUT BC NOT SURE IF WORKING WELL dont let mac clipboard override y and p
+noremap <Leader>y "0y
+noremap <Leader>p "0p
+"noremap <Leader>Y "+y
+"noremap <Leader>P "+p
 
 set termguicolors
 "colorscheme rigel
@@ -122,15 +129,6 @@ let g:rigel_lightline = 1
 set background=dark
 
 
-"copy and paste in and out of vim
-set clipboard=unnamedplus
-
-"make d be delete instead of cut
-nnoremap d "_d
-vnoremap d "_d
-
-" Dont override a yank after override, just save yank in 0 registy
-nnoremap p "0p
 
 "No swp files
 set nobackup
@@ -146,4 +144,3 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 "format jsons
 com! FormatJSON %!python -m json.tool
 "End of Mikes stuff"
-
