@@ -114,6 +114,10 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 "jj esc
 imap jj <Esc>
+";; to save and esc when in insert or normal mode"
+nnoremap ;; <Esc>:w<CR>
+imap ;; <Esc>:w<CR>
+
 "COMMENTED OUT BC NOT SURE IF WORKING WELL dont let mac clipboard override y and p
 noremap <Leader>y "0y
 noremap <Leader>p "0p
