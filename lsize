@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+du -hac --max-depth=1 | sort -h
